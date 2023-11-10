@@ -1,6 +1,6 @@
 mappings:
-  - /content/exlm-gandal/global/:/
-  - /content/exlm-gandal/global/en:/
+  - /content/exlm-gandal/us/:/
+  - /content/exlm-gandal/us/en:/
   - /content/exlm-gandal/metadata:/metadata.json
   # load fragments as resource from codebus in the editor (sw.js)
   - /content/exlm-gandal.resource/fragments/:/fragments/
@@ -8,4 +8,4 @@ mappings:
   - /content/exlm-gandal/redirects:/redirects.json
 
 includes:
-  - /content/exlm-gandal/
+  - /content/exlm-gandal/us/en
