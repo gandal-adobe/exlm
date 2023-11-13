@@ -227,17 +227,9 @@
         "description": "A descriptive text of the image will be shown as tooltip."
       },
       {
-        "component": "text-input",
-        "valueType": "string",
-        "name": "dummyText",
-        "value": "",
-        "label": "dummy spacer field",
-        "description": "dummy spacer field"
-      },
-      {
         "component": "reference",
         "valueType": "string",
-        "name": "fileReferenceSubject",
+        "name": "subjectFileReference",
         "label": "Subject Image",
         "description": "The marquee subject image, min Xpx x Ypx...",
         "multi": false
@@ -245,7 +237,7 @@
       {
         "component": "text-input",
         "valueType": "string",
-        "name": "imageAltSubject",
+        "name": "subjectImageAlt",
         "value": "",
         "label": "Subject Image Description",
         "description": "A descriptive text of the image will be shown as tooltip."
