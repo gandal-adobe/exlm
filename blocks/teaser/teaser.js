@@ -39,7 +39,7 @@ export default function decorate(block) {
   const teaserDOM = document.createRange().createContextualFragment(`
     <div class='foreground'>
       <div class='text'>
-        <div class='eyebrow'>${eyebrow}</div>
+        ${eyebrow !== '' ? `<div class='eyebrow'>${eyebrow}</div>` : ``}
         <div class='title'>${title}</div>
         <div class='long-description'>${longDescr}</div>
         <div class='short-description'>${
@@ -53,8 +53,7 @@ export default function decorate(block) {
           secondCTAText !== '' && secondCTALink !== ''
             ? `<a class='button ${secondCTAType}' href='${secondCTALink}'>${secondCTAText}</a>`
             : ``
-        }
-        </div>
+        }</div>
       </div>
       <div class='spacer'>
       </div>
@@ -66,20 +65,19 @@ export default function decorate(block) {
   // add image
   if (pictureElem) {
     teaserDOM.querySelector('.background').append(pictureElem);
-  }
-
-  // add the image description
-  if (imageDescr) {
-    teaserDOM
-      .querySelector('.background picture img')
-      .setAttribute('alt', imageDescr);
+    // add the image description
+    if (imageDescr) {
+      pictureElem.querySelector('img').setAttribute('alt', imageDescr);
+    }
   }
 
   // set the mobile background color
-  block.style.setProperty(
-    '--teaser-background-color',
-    `var(${backgroundColor})`,
-  );
+  if (backgroundColor) {
+    block.style.setProperty(
+      '--teaser-background-color',
+      `var(${backgroundColor})`,
+    );
+  }
 
   // add final teaser DOM
   block.textContent = '';
