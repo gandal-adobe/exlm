@@ -216,7 +216,7 @@
         "name": "fileReference",
         "label": "Background Image",
         "description": "The marquee background image, min Xpx x Ypx...",
-        "multi": true
+        "multi": false
       },
       {
         "component": "text-input",
@@ -232,7 +232,7 @@
         "name": "subjectFileReference",
         "label": "Subject Image",
         "description": "The marquee subject image, min Xpx x Ypx...",
-        "multi": true
+        "multi": false
       },
       {
         "component": "text-input",
