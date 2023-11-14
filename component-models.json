@@ -229,7 +229,7 @@
       {
         "component": "reference",
         "valueType": "string",
-        "name": "subjectFileReference",
+        "name": "fileReferenceSecond",
         "label": "Subject Image",
         "description": "The marquee subject image, min Xpx x Ypx...",
         "multi": false
@@ -237,7 +237,7 @@
       {
         "component": "text-input",
         "valueType": "string",
-        "name": "subjectImageAlt",
+        "name": "imageAltSecond",
         "value": "",
         "label": "Subject Image Description",
         "description": "A descriptive text of the image will be shown as tooltip."
