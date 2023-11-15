@@ -205,17 +205,12 @@
                   "model": "marquee",
                   "fileReference": "/content/dam/default-teaser-banner.png",
                   "fileReferenceSecond": "/content/dam/default-teaser-banner.png",
-                  "marquee": {
-                    "name": "Marquee",
-                    "model": "marquee",
-                    "fileReference": "/content/dam/default-teaser-banner.png",
-                    "title": "Marquee Title",
-                    "longDescr": "<p>Marquee Description</p>",
-                    "classes": [
-                      "light",
-                      "left"
-                    ]
-                  }
+                  "title": "Teaser Title",
+                  "longDescr": "<p>Teaser Description</p>",
+                  "classes": [
+                    "light",
+                    "left"
+                  ]
                 }
               }
             }
