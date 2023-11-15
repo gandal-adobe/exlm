@@ -35,7 +35,7 @@ export default function decorate(block) {
       : ``
     }</div>
       </div>
-      ${subjectPicture ? `${subjectPicture}` : `<div class='spacer'></div>`}
+      ${subjectPicture ? `<div class='subject'>${subjectPicture}</div>` : `<div class='spacer'></div>`}
     </div>
     <div class='background'>${backgroundPicture}</div>
   `);
