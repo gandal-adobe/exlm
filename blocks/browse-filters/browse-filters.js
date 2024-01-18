@@ -1,4 +1,4 @@
-import { decorateIcons, getMetadata, fetchPlaceholders } from '../../scripts/lib-franklin.js';
+import { decorateIcons, getMetadata } from '../../scripts/lib-franklin.js';
 import { createTag, htmlToElement, debounce } from '../../scripts/scripts.js';
 import {
   roleOptions,
@@ -25,14 +25,6 @@ const coveoFacetFilterNameMap = {
   el_role: 'Role',
   el_level: 'Experience Level',
 };
-
-let placeholders = {};
-try {
-  placeholders = await fetchPlaceholders();
-} catch (err) {
-  // eslint-disable-next-line no-console
-  console.error('Error fetching placeholders:', err);
-}
 
 const theme = getMetadata('theme').trim();
 const isBrowseProdPage = theme === 'browse-product';
@@ -644,14 +636,12 @@ async function handleSearchEngineSubscription() {
       filterResultsEl.appendChild(cardDiv);
       buildCardsShimmer.setParent(filterResultsEl);
       document.querySelector('.browse-filters-form').classList.add('is-result');
-      filterResultsEl.classList.remove('no-results');
       decorateIcons(cardDiv);
     });
   } else {
     buildCardsShimmer.hide();
-    filterResultsEl.innerHTML = placeholders.noResultsTextBrowse || 'No Results';
+    filterResultsEl.innerHTML = 'No Results';
     document.querySelector('.browse-filters-form').classList.remove('is-result');
-    filterResultsEl.classList.add('no-results');
   }
 }
 
