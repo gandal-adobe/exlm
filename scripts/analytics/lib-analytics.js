@@ -89,3 +89,15 @@ export function linkClickModel(e) {
     window.location.href = e.target.href;
   }, 1000);
 }
+
+export function assetInteractionModel(id, type) {
+  window.adobeDataLayer = window.adobeDataLayer || [];
+
+  window.adobeDataLayer.push({
+    event: 'assetInteraction',
+    asset: {
+      id: id,
+      interactionType: type
+    }
+  });
+}

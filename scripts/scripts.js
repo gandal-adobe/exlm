@@ -16,7 +16,7 @@ import {
   getMetadata,
   loadScript,
 } from './lib-franklin.js';
-import { pageLoadModel, linkClickModel } from './analytics/lib-analytics.js';
+import { pageLoadModel, linkClickModel, assetInteractionModel } from './analytics/lib-analytics.js';
 
 const LCP_BLOCKS = ['marquee']; // add your LCP blocks to the list
 
@@ -431,6 +431,31 @@ function loadAnalyticsEvents() {
       }
     });
   });
+
+  // asset interaction tracking | videos, pdfs, pptx
+  const assetClicked = document.querySelectorAll('.pdf');   // selector TBD
+  linkClicked.forEach((linkElement) => {
+    linkElement.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log(e);
+      if (e.target.tagName === 'A') {
+        assetInteractionModel(e);
+      }
+    });
+  });
+
+  // asset interaction tracking | thumbs up, thumbs down
+  const id = ((document.querySelector('meta[name="id"]') || {}).content || '').trim();  // ID is probably available somewhere
+  const thumbsUpDownIcons = document.querySelectorAll('.icon.icon-thumb-up, .icon.icon-thumb-down');
+  thumbsUpDownIcons.forEach((thumbsIcon) => {
+    if (thumbsIcon) {
+      thumbsIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        assetInteractionModel(id,'Thumbs Up');
+      });
+    }
+  });
+
 }
 
 async function loadPage() {
