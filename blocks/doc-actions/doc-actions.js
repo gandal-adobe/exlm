@@ -2,6 +2,7 @@ import { fetchPlaceholders } from '../../scripts/lib-franklin.js';
 import { isDocPage } from '../../scripts/scripts.js';
 import loadJWT from '../../scripts/auth/jwt.js';
 import { adobeIMS, profile, updateProfile } from '../../scripts/data-service/profile-service.js';
+import { assetInteractionModel } from './analytics/lib-analytics.js';
 
 const placeholders = await fetchPlaceholders();
 
@@ -106,6 +107,7 @@ export function decorateBookmark(block) {
               setTimeout(() => {
                 bookmarkAuthedToolTipIcon.style.pointerEvents = 'auto';
               }, 3000);
+              assetInteractionModel(id, 'Bookmark');
             });
           });
         }
@@ -120,6 +122,7 @@ export function decorateBookmark(block) {
 }
 
 export function decorateCopyLink(block) {
+  const id = ((document.querySelector('meta[name="id"]') || {}).content || '').trim();
   const copyLinkDivNode = document.createElement('div');
   copyLinkDivNode.className = 'copy-link';
   copyLinkDivNode.innerHTML = tooltipTemplate(
@@ -139,6 +142,7 @@ export function decorateCopyLink(block) {
         e.preventDefault();
         navigator.clipboard.writeText(window.location.href);
         sendNotice(`${placeholders.toastSet}`);
+        assetInteractionModel(id,'Copy');
       });
     }
   });
