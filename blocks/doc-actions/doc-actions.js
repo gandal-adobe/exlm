@@ -2,7 +2,7 @@ import { fetchPlaceholders } from '../../scripts/lib-franklin.js';
 import { isDocPage } from '../../scripts/scripts.js';
 import loadJWT from '../../scripts/auth/jwt.js';
 import { adobeIMS, profile, updateProfile } from '../../scripts/data-service/profile-service.js';
-import { assetInteractionModel } from './analytics/lib-analytics.js';
+import { assetInteractionModel } from '../../scripts/analytics/lib-analytics.js';
 
 const placeholders = await fetchPlaceholders();
 
