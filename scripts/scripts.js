@@ -432,18 +432,6 @@ function loadAnalyticsEvents() {
     });
   });
 
-  // asset interaction tracking | videos, pdfs, pptx
-  const assetClicked = document.querySelectorAll('.pdf');   // selector TBD
-  linkClicked.forEach((linkElement) => {
-    linkElement.addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log(e);
-      if (e.target.tagName === 'A') {
-        assetInteractionModel(e);
-      }
-    });
-  });
-
   // asset interaction tracking | thumbs up, thumbs down
   const id = ((document.querySelector('meta[name="id"]') || {}).content || '').trim();  // ID is probably available somewhere
   const thumbsUpDownIcons = document.querySelectorAll('.icon.icon-thumb-up, .icon.icon-thumb-down');
@@ -454,6 +442,15 @@ function loadAnalyticsEvents() {
         assetInteractionModel(id,'Thumbs Up');
       });
     }
+  });
+
+  // asset interaction tracking | videos, pdfs, pptx
+  const assetClicked = document.querySelectorAll('.embed-video');   // selector TBD
+  linkClicked.forEach((linkElement) => {
+    linkElement.addEventListener('click', (e) => {
+      e.preventDefault();
+      assetInteractionModel(id,'Video');
+    });
   });
 
 }
