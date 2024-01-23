@@ -445,11 +445,11 @@ function loadAnalyticsEvents() {
   });
 
   // asset interaction tracking | videos, pdfs, pptx
-  const assetClicked = document.querySelectorAll('.embed-video');   // selector TBD
+  const assetClicked = document.querySelectorAll('.pdf');   // selector TBD
   linkClicked.forEach((linkElement) => {
     linkElement.addEventListener('click', (e) => {
       e.preventDefault();
-      assetInteractionModel(id,'Video');
+      assetInteractionModel(id,'PDF');
     });
   });
 

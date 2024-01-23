@@ -42,6 +42,7 @@ const loadEmbed = (block, link, autoplay) => {
 
   const config = EMBEDS_CONFIG.find((e) => e.match.some((match) => link.includes(match)));
   const url = new URL(link);
+  const videoId = url.pathname.replace(/[^0-9]+/g, '');
   if (config) {
     block.innerHTML = config.embed(url, autoplay);
     block.classList = `block embed embed-${config.match[0]}`;
@@ -50,6 +51,15 @@ const loadEmbed = (block, link, autoplay) => {
     block.classList = 'block embed';
   }
   block.classList.add('embed-is-loaded');
+
+  // Analytics: asset interaction tracking
+  const block = document.querySelectorAll('.embed-video');   // selector TBD
+  linkClicked.forEach((linkElement) => {
+    linkElement.addEventListener('click', (e) => {
+      e.preventDefault();
+      assetInteractionModel(videoId,'Video');
+    });
+  });
 };
 
 export default function decorate(block) {
