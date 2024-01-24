@@ -53,9 +53,9 @@ const loadEmbed = (block, link, autoplay) => {
   block.classList.add('embed-is-loaded');
 
   // Analytics: asset interaction tracking
-  const block = document.querySelectorAll('.embed-video');   // selector TBD
-  linkClicked.forEach((linkElement) => {
-    linkElement.addEventListener('click', (e) => {
+  const videoAssets = block.querySelectorAll('.embed-video');   // selector TBD
+  videoAssets.forEach((videoElement) => {
+    videoElement.addEventListener('click', (e) => {
       e.preventDefault();
       assetInteractionModel(videoId,'Video');
     });
