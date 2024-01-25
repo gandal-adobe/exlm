@@ -133,3 +133,14 @@ export function assetInteractionModel(id, type) {
     }
   });
 }
+
+/**
+ * Sanitizes a string for use analytics event type.
+ * @param {string} str The unsanitized string
+ * @returns {string} The camelCased event type, white space preserved.
+ */
+export function toCamelCaseWithSpace(str) {
+  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+        return index == 0 ? word.toLowerCase() : word.toUpperCase();
+    }).replace(/\s+/g, '');
+}

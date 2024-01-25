@@ -1,7 +1,8 @@
-import { decorateIcons, getMetadata, loadCSS, fetchPlaceholders, toCamelCase } from '../lib-franklin.js';
+import { decorateIcons, getMetadata, loadCSS, fetchPlaceholders } from '../lib-franklin.js';
 import { createTag, htmlToElement } from '../scripts.js'; // eslint-disable-line import/no-cycle
 import { QUALTRICS_LOADED_EVENT_NAME } from './qualtrics/constants.js';
 import { embedQualtricsSurveyIntercept } from './qualtrics/qualtrics-embed.js';
+import { assetInteractionModel, toCamelCaseWithSpace } from '../scripts/analytics/lib-analytics.js';
 
 // fetch fragment html
 const fetchFragment = async (rePath, lang = 'en') => {
