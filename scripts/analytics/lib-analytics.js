@@ -113,3 +113,22 @@ export function linkClickModel(e) {
     },
   });
 }
+
+export function assetInteractionModel(id, type) {
+  window.adobeDataLayer = window.adobeDataLayer || [];
+
+  window.adobeDataLayer.push({
+    link: {
+      destinationDomain: '',
+      linkLocation: '',
+      linkTitle: '',
+      linkType: '',
+      solution: ''
+    },
+    event: 'assetInteraction',
+    asset: {
+      id: id,
+      interactionType: type
+    }
+  });
+}
