@@ -117,6 +117,7 @@ export function linkClickModel(e) {
 export function assetInteractionModel(id, type) {
   window.adobeDataLayer = window.adobeDataLayer || [];
 
+  const assetId = id ? id : ((document.querySelector('meta[name="id"]') || {}).content || '').trim();
   window.adobeDataLayer.push({
     link: {
       destinationDomain: '',
@@ -127,7 +128,7 @@ export function assetInteractionModel(id, type) {
     },
     event: 'assetInteraction',
     asset: {
-      id: id,
+      id: assetId,
       interactionType: type
     }
   });
