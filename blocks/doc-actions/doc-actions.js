@@ -90,18 +90,18 @@ function decorateCopyLink(block) {
     `${placeholders.toastTiptext}`,
   );
 
-  block.appendChild(copyLinkDivNode);
-  const docActionsDesktopIconCopy = document.querySelector('.doc-actions .copy-icon');
-  const docActionsMobile = document.querySelector('.doc-actions-mobile');
+  block.appendChild(copyLinkDivNode);  // handled by Usman addToDocActions()
 
-  if (docActionsDesktopIconCopy) {
-    attachCopyLink(docActionsDesktopIconCopy, window.location.href, placeholders.toastSet);
+  const docActionsMobile = document.querySelector('.doc-actions-mobile'); // handled by line 47 addToDocActions()
+  if (docActionsMobile) {   // handled by Usman addToDocActions()
+    docActionsMobile.appendChild(copyLinkDivNode.cloneNode(true));   // handled by line 51 addToDocActions()
+    const docActionsMobileIconCopy = docActionsMobile.querySelector('.copy-icon');  // stays
+    attachCopyLink(docActionsMobileIconCopy, window.location.href, placeholders.toastSet);   // stays
   }
 
-  if (docActionsMobile) {
-    docActionsMobile.appendChild(copyLinkDivNode.cloneNode(true));
-    const docActionsMobileIconCopy = docActionsMobile.querySelector('.copy-icon');
-    attachCopyLink(docActionsMobileIconCopy, window.location.href, placeholders.toastSet);
+  const docActionsDesktopIconCopy = document.querySelector('.doc-actions .copy-icon');
+  if (docActionsDesktopIconCopy) {
+    attachCopyLink(docActionsDesktopIconCopy, window.location.href, placeholders.toastSet);
   }
 }
 
