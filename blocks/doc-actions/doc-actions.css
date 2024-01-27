@@ -120,7 +120,7 @@
 .doc-actions .doc-mt-toggle input[type="checkbox"] {
   appearance: none;
   width: 2rem;
-  background: var(--spectrum-gray-300);
+  background: var(--spectrum-blue-900);
   border-radius: 3rem;
   position: relative;
   cursor: pointer;
@@ -132,7 +132,7 @@
 }
 
 .doc-actions .doc-mt-toggle input[type="checkbox"]:checked {
-  background: var(--spectrum-blue-900);
+  background: var(--spectrum-gray-300);
 }
 
 .doc-actions .doc-mt-toggle input[type="checkbox"]::after {
@@ -141,7 +141,7 @@
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  outline: 2px solid var(--spectrum-blue-900);
+  outline: 2px solid var(--spectrum-gray-600);
   outline-offset: -1px;
   background: #fff;
   transform: scale(0.7);
@@ -152,7 +152,7 @@
 .doc-actions .doc-mt-toggle input[type="checkbox"]:checked::after {
   left: calc(100% - 0.95rem);
   border: 0;
-  outline: 2px solid var(--spectrum-gray-600);
+  outline: 2px solid var(--spectrum-blue-900);
 }
 
 .doc-actions-wrapper {
