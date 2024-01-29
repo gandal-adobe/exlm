@@ -118,21 +118,20 @@ export function assetInteractionModel(id, type) {
   window.adobeDataLayer = window.adobeDataLayer || [];
 
   const assetId = id ? id : ((document.querySelector('meta[name="id"]') || {}).content || '').trim();
-  //const assetId = id ? id : id;   // debug "Uncaught (in promise) DOMException: Document is not focused."
-  // window.adobeDataLayer.push({ // debug "Uncaught (in promise) DOMException: Document is not focused."
-  //   link: {
-  //     destinationDomain: '',
-  //     linkLocation: '',
-  //     linkTitle: '',
-  //     linkType: '',
-  //     solution: ''
-  //   },
-  //   event: 'assetInteraction',
-  //   asset: {
-  //     id: assetId,
-  //     interactionType: type
-  //   }
-  // });
+  window.adobeDataLayer.push({
+    link: {
+      destinationDomain: '',
+      linkLocation: '',
+      linkTitle: '',
+      linkType: '',
+      solution: ''
+    },
+    event: 'assetInteraction',
+    asset: {
+      id: assetId,
+      interactionType: type
+    }
+  });
 }
 
 /**
