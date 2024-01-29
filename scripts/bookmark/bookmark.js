@@ -31,7 +31,7 @@ const renderBookmark = (labelSel, iconSel, id) => {
       setTimeout(() => {
         iconSel.style.pointerEvents = 'auto';
       }, 3000);
-      assetInteractionModel(null, 'Bookmark');
+      assetInteractionModel(e.currentTarget.dataset.id, 'Bookmark');
     });
   }
 };
