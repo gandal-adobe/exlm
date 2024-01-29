@@ -7,7 +7,7 @@ const attachCopyLink = (selector, target, info) => {
       e.preventDefault();
       navigator.clipboard.writeText(target);
       sendNotice(info);
-      assetInteractionModel(null,'Copy');
+      assetInteractionModel(e.currentTarget.dataset.id,'Copy');
     });
   }
 };
