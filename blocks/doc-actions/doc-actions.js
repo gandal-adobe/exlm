@@ -5,7 +5,7 @@ import { adobeIMS, profile } from '../../scripts/data-service/profile-service.js
 import { tooltipTemplate } from '../../scripts/toast/toast.js';
 import renderBookmark from '../../scripts/bookmark/bookmark.js';
 import attachCopyLink from '../../scripts/copy-link/copy-link.js';
-import decorateMiniTOC from '../../blocks/mini-toc/mini-toc.js';
+import decorateMiniTOC from '../mini-toc/mini-toc.js';
 
 loadCSS(`${window.hlx.codeBasePath}/scripts/toast/toast.css`);
 
@@ -103,14 +103,14 @@ function decorateCopyLink(block) {
     `${placeholders.toastTiptext}`,
   );
 
-  block.appendChild(copyLinkDivNode);  // handled by Usman addToDocActions()
+  block.appendChild(copyLinkDivNode);
 
-  const docActionsMobile = document.querySelector('.doc-actions-mobile'); // handled by line 47 addToDocActions()
-  if (docActionsMobile) {   // handled by Usman addToDocActions()
-    docActionsMobile.appendChild(copyLinkDivNode.cloneNode(true));   // handled by line 51 addToDocActions()
-    // below 2 lines is unique to this method so cannot use addToDocActions()
-    const docActionsMobileIconCopy = docActionsMobile.querySelector('.copy-icon');  // stays
-    attachCopyLink(docActionsMobileIconCopy, window.location.href, placeholders.toastSet);   // stays
+  const docActionsMobile = document.querySelector('.doc-actions-mobile');
+  if (docActionsMobile) {
+    docActionsMobile.appendChild(copyLinkDivNode.cloneNode(true));
+    // below 2 lines are unique to this method so cannot use addToDocActions()
+    const docActionsMobileIconCopy = docActionsMobile.querySelector('.copy-icon');
+    attachCopyLink(docActionsMobileIconCopy, window.location.href, placeholders.toastSet);
   }
 
   const docActionsDesktopIconCopy = document.querySelector('.doc-actions .copy-icon');
@@ -120,7 +120,7 @@ function decorateCopyLink(block) {
 }
 
 async function getTranslatedDocContent() {
-  const docPath = window.location.pathname.replace(new RegExp('/[a-zA-Z]{2}/'),'/en/');
+  const docPath = window.location.pathname.replace(new RegExp(/\/[a-zA-Z]{2}\//), '/en/');
   const docResponse = await fetch(`${docPath}.plain.html`);
   const translatedDoc = await docResponse.text();
   const docElement = htmlToElement(`<div>${translatedDoc}</div>`);
