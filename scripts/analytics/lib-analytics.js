@@ -117,6 +117,7 @@ export function linkClickModel(e) {
 export function assetInteractionModel(id, type) {
   window.adobeDataLayer = window.adobeDataLayer || [];
 
+  // assetId is set to the current docs page articleId if id param value is null
   const assetId = id ? id : ((document.querySelector('meta[name="id"]') || {}).content || '').trim();
   window.adobeDataLayer.push({
     link: {
