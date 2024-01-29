@@ -117,7 +117,8 @@ export function linkClickModel(e) {
 export function assetInteractionModel(id, type) {
   window.adobeDataLayer = window.adobeDataLayer || [];
 
-  const assetId = id ? id : ((document.querySelector('meta[name="id"]') || {}).content || '').trim();
+  //const assetId = id ? id : ((document.querySelector('meta[name="id"]') || {}).content || '').trim();
+  const assetId = id ? id : id;   // debug "Uncaught (in promise) DOMException: Document is not focused."
   window.adobeDataLayer.push({
     link: {
       destinationDomain: '',
