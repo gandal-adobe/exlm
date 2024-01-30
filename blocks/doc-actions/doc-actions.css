@@ -96,6 +96,7 @@
   background-color: var(--spectrum-gray-200);
   border-radius: 4px;
 }
+.doc-actions .doc-mt-toggle .copy-icon,
 .doc-actions .copy-link .copy-icon,
 .doc-actions-mobile .copy-link .copy-icon {
   background-image: url("../../icons/copy-link.svg");

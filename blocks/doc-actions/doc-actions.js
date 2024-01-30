@@ -6,7 +6,6 @@ import { tooltipTemplate } from '../../scripts/toast/toast.js';
 import renderBookmark from '../../scripts/bookmark/bookmark.js';
 import attachCopyLink from '../../scripts/copy-link/copy-link.js';
 import decorateMiniTOC from '../mini-toc/mini-toc.js';
-import { createTooltip } from '../../scripts/browse-card/browse-card-tooltip.js';
 
 loadCSS(`${window.hlx.codeBasePath}/scripts/toast/toast.css`);
 
@@ -152,17 +151,8 @@ function decorateLanguageToggle(block) {
     const languageToggleElement = createTag(
       'div',
       { class: 'doc-mt-toggle' },
-      `<span>${placeholders.automaticTranslation}</span><input type="checkbox"><div class="tooltip-placeholder"></div>`,
+      `<span>${placeholders.automaticTranslation}</span><input type="checkbox"><span class="copy-icon"></span>`,
     );
-    const tooltipElem = languageToggleElement.querySelector('.tooltip-placeholder');
-    if (tooltipElem) {
-      const tooltipConfig = {
-        position: 'top',
-        color: 'grey',
-        content: `${placeholders.automaticTranslationTooltipUrl}`,
-      };
-      createTooltip(block, tooltipElem, tooltipConfig);
-    }
     addToDocActions(languageToggleElement, block);
     const desktopAndMobileLangToggles = document.querySelectorAll('.doc-mt-toggle input');
     const docContainer = document.querySelector('main > div:first-child');
