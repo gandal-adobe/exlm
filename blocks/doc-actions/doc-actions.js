@@ -147,7 +147,7 @@ async function toggleContent(isChecked, docContainer) {
 function decorateLanguageToggle(block) {
   if ((document.querySelector('meta[name="ht-degree"]')) && ((document.querySelector('meta[name="ht-degree"]') || {}).content || '').trim() !== '100%'
   ) {
-    const languageToggleElement = createTag('div', { class: 'doc-mt-toggle' }, `<span>${placeholders.automatic-translation}</span><input type="checkbox">`);
+    const languageToggleElement = createTag('div', { class: 'doc-mt-toggle' }, `<span>${placeholders.automaticTranslation}</span><input type="checkbox">`);
     addToDocActions(languageToggleElement, block);
     const desktopAndMobileLangToggles = document.querySelectorAll('.doc-mt-toggle input');
     const docContainer = document.querySelector('main > div:first-child');
