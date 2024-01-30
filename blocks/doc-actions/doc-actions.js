@@ -120,7 +120,6 @@ function decorateCopyLink(block) {
 }
 
 async function getTranslatedDocContent() {
-  //const docPath = `/en/${window.location.pathname.slice(4)}`;
   const docPath = `/en/${window.location.pathname.replace(/^(?:[^/]*\/){2}\s*/, '')}`;
   const docResponse = await fetch(`${docPath}.plain.html`);
   const translatedDoc = await docResponse.text();
@@ -152,8 +151,15 @@ function decorateLanguageToggle(block) {
     const languageToggleElement = createTag(
       'div',
       { class: 'doc-mt-toggle' },
-      `<span>${placeholders.automaticTranslation}</span><input type="checkbox">`,
+      `<span>${placeholders.automaticTranslation}</span><input type="checkbox"><div class="tooltip-placeholder"></div>`,
     );
+    const tooltipElem = block.querySelector('.tooltip-placeholder');
+    if (tooltipElem) {
+      const tooltipConfig = {
+        content: 'https://experienceleague.adobe.com/docs/contributor/contributor-guide/localization/machine-translation.html?lang=fr',
+      };
+      createTooltip(block, tooltipElem, tooltipConfig);
+    }
     addToDocActions(languageToggleElement, block);
     const desktopAndMobileLangToggles = document.querySelectorAll('.doc-mt-toggle input');
     const docContainer = document.querySelector('main > div:first-child');
