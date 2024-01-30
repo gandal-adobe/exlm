@@ -159,7 +159,7 @@ function decorateLanguageToggle(block) {
       const tooltipConfig = {
         position: 'top',
         color: 'grey',
-        content: `${placeholders.automaticTranslation}`,
+        content: `${placeholders.automaticTranslationTooltipUrl}`,
       };
       createTooltip(block, tooltipElem, tooltipConfig);
     }
