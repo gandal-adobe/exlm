@@ -159,7 +159,7 @@ function decorateLanguageToggle(block) {
       const tooltipConfig = {
         position: 'top',
         color: 'grey',
-        content: 'Analytics, Commerce',
+        content: `${placeholders.automaticTranslation}`,
       };
       createTooltip(block, tooltipElem, tooltipConfig);
     }
