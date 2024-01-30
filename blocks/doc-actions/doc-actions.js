@@ -153,7 +153,7 @@ function decorateLanguageToggle(block) {
       { class: 'doc-mt-toggle' },
       `<span>${placeholders.automaticTranslation}</span><input type="checkbox"><div class="tooltip-placeholder"></div>`,
     );
-    const tooltipElem = block.querySelector('.tooltip-placeholder');
+    const tooltipElem = languageToggleElement.querySelector('.tooltip-placeholder');
     if (tooltipElem) {
       const tooltipConfig = {
         content: 'https://experienceleague.adobe.com/docs/contributor/contributor-guide/localization/machine-translation.html?lang=fr',
