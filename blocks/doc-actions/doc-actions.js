@@ -157,7 +157,9 @@ function decorateLanguageToggle(block) {
     const tooltipElem = languageToggleElement.querySelector('.tooltip-placeholder');
     if (tooltipElem) {
       const tooltipConfig = {
-        content: 'https://experienceleague.adobe.com/docs/contributor/contributor-guide/localization/machine-translation.html?lang=fr',
+        position: 'top',
+        color: 'grey',
+        content: 'Analytics, Commerce',
       };
       createTooltip(block, tooltipElem, tooltipConfig);
     }
