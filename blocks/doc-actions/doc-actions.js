@@ -6,6 +6,7 @@ import { tooltipTemplate } from '../../scripts/toast/toast.js';
 import renderBookmark from '../../scripts/bookmark/bookmark.js';
 import attachCopyLink from '../../scripts/copy-link/copy-link.js';
 import decorateMiniTOC from '../mini-toc/mini-toc.js';
+import { createTooltip } from '../../scripts/browse-card/browse-card-tooltip.js';
 
 loadCSS(`${window.hlx.codeBasePath}/scripts/toast/toast.css`);
 
