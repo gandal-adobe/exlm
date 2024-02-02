@@ -1,4 +1,4 @@
-import { loadCSS, fetchPlaceholders, loadBlocks } from '../../scripts/lib-franklin.js';
+import { loadCSS, fetchPlaceholders, loadBlocks, decorateIcons } from '../../scripts/lib-franklin.js';
 import { createTag, isDocPage, htmlToElement, decorateMain } from '../../scripts/scripts.js';
 import loadJWT from '../../scripts/auth/jwt.js';
 import { adobeIMS, profile } from '../../scripts/data-service/profile-service.js';
@@ -23,13 +23,17 @@ try {
  * @param {HTMLElement} element
  * @param {HTMLElement} block
  */
-const addToDocActions = (element, block) => {
+const addToDocActions = async (element, block) => {
   const mobileActionsBlock = document.querySelector('.doc-actions-mobile');
-  block.appendChild(element);
+  if (document.querySelector('.doc-actions-mobile') !== 'undefined') {
+    block.appendChild(element);
+  }
 
   if (mobileActionsBlock) {
     mobileActionsBlock.appendChild(element.cloneNode(true));
+    await decorateIcons(mobileActionsBlock);
   }
+  await decorateIcons(element);
 };
 
 function decorateBookmarkMobileBlock() {
@@ -124,7 +128,7 @@ async function getTranslatedDocContent() {
   const docResponse = await fetch(`${docPath}.plain.html`);
   const translatedDoc = await docResponse.text();
   const docElement = htmlToElement(`<div>${translatedDoc}</div>`);
-  decorateMain(docElement);
+  // decorateMain(docElement); TBC
   await loadBlocks(docElement);
   return docElement.querySelector(':scope > div:first-child');
 }
@@ -143,7 +147,7 @@ async function toggleContent(isChecked, docContainer) {
   }
 }
 
-function decorateLanguageToggle(block) {
+async function decorateLanguageToggle(block) {
   if (
     document.querySelector('meta[name="ht-degree"]') &&
     ((document.querySelector('meta[name="ht-degree"]') || {}).content || '').trim() !== '100%'
@@ -151,10 +155,23 @@ function decorateLanguageToggle(block) {
     const languageToggleElement = createTag(
       'div',
       { class: 'doc-mt-toggle' },
-      `<span>${placeholders.automaticTranslation}</span><input type="checkbox"><span class="icon-info"></span>`,
+      `<div class="doc-mt-checkbox">
+      <span>${placeholders.automaticTranslation}</span>
+      <input type="checkbox"><a href="${placeholders.automaticTranslationLink}" target="_blank"><span class="icon icon-info"></span></a>
+      </div>
+      <div class="doc-mt-feedback">
+        <span class="prompt">${placeholders.automaticTranslationFeedback}</span>
+        <div class="doc-mt-feedback-radio">
+          <label class="radio">${placeholders.automaticTranslationFeedbackYes}</label>
+          <input type="radio" name="helpful-translation" value="yes">
+          <label class="radio">${placeholders.automaticTranslationFeedbackNo}</label>
+          <input type="radio" name="helpful-translation" value="no">
+        </div>
+      </div>`,
     );
     addToDocActions(languageToggleElement, block);
-    const desktopAndMobileLangToggles = document.querySelectorAll('.doc-mt-toggle input');
+    await decorateIcons(block);
+    const desktopAndMobileLangToggles = document.querySelectorAll('.doc-mt-toggle .doc-mt-checkbox input[type="checkbox"]');
     const docContainer = document.querySelector('main > div:first-child');
 
     [...desktopAndMobileLangToggles].forEach((langToggle) => {
