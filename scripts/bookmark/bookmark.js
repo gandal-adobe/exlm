@@ -22,18 +22,19 @@ const renderBookmark = (labelSel, iconSel, id) => {
         iconSel.classList.remove('authed');
         sendNotice(`${placeholders.bookmarkUnset}`);
         iconSel.style.pointerEvents = 'none';
+        assetInteractionModel(id, 'Bookmarked');
       } else {
         await updateProfile('bookmarks', id);
         labelSel.innerHTML = `${placeholders.bookmarkAuthLabelRemove}`;
         iconSel.classList.add('authed');
         sendNotice(`${placeholders.bookmarkSet}`);
         iconSel.style.pointerEvents = 'none';
+        assetInteractionModel(id, 'Bookmark removed');
       }
 
       setTimeout(() => {
         iconSel.style.pointerEvents = 'auto';
       }, 3000);
-      assetInteractionModel(id, 'Bookmark');
     }
   });
 };
