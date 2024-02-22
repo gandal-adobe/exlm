@@ -22,14 +22,14 @@ const renderBookmark = (labelSel, iconSel, id) => {
         iconSel.classList.remove('authed');
         sendNotice(`${placeholders.bookmarkUnset}`);
         iconSel.style.pointerEvents = 'none';
-        assetInteractionModel(id, 'Bookmarked');
+        assetInteractionModel(id, 'Bookmark removed');
       } else {
         await updateProfile('bookmarks', id);
         labelSel.innerHTML = `${placeholders.bookmarkAuthLabelRemove}`;
         iconSel.classList.add('authed');
         sendNotice(`${placeholders.bookmarkSet}`);
         iconSel.style.pointerEvents = 'none';
-        assetInteractionModel(id, 'Bookmark removed');
+        assetInteractionModel(id, 'Bookmarked');
       }
 
       setTimeout(() => {
