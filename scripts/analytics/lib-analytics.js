@@ -218,8 +218,6 @@ export function linkClickModel(e) {
 export function assetInteractionModel(id, assetInteractionType) {
   window.adobeDataLayer = window.adobeDataLayer || [];
 
-  // EXLM-1171 assetInteractionType bookmark
-  const webBookmarkMarkers = ['Bookmarked', 'Bookmark removed'];
   // assetId is set to the current docs page articleId if id param value is null
   const assetId = id || ((document.querySelector('meta[name="id"]') || {}).content || '').trim();
   window.adobeDataLayer.push({
@@ -235,10 +233,25 @@ export function assetInteractionModel(id, assetInteractionType) {
       id: assetId,
       interactionType: assetInteractionType,
     },
-    web: {
-      bookmark: {
-        bookmarkAction: webBookmarkMarkers.includes(assetInteractionType) ? assetInteractionType : 'unidentified',
-      },
-    },
   });
+
+  // EXLM-1171 assetInteractionType bookmark
+  const webBookmarkMarkers = ['Bookmarked', 'Bookmark removed'];
+  if (webBookmarkMarkers.includes(assetInteractionType)) {
+    window.adobeDataLayer.push({
+      link: {
+        destinationDomain: '',
+        linkLocation: '',
+        linkTitle: '',
+        linkType: '',
+        solution: '',
+      },
+      event: 'web.webinteraction.assetInteraction',
+      web: {
+        bookmark: {
+          bookmarkAction: webBookmarkMarkers.includes(assetInteractionType) ? assetInteractionType : 'unidentified',
+        },
+      },
+    });
+  }
 }
