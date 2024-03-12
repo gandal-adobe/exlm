@@ -2235,5 +2235,18 @@
         "description": "Sets the text url."
       }
     ]
+  },
+  {
+    "id": "xfragment",
+    "fields": [
+      {
+        "component": "aem-experience-fragment",
+        "name": "xfragment",
+        "label": "xperienceFragment",
+        "valueType": "string",
+        "rootPath": "/content/experience-fragments/exlm-gandal/us/en/site",
+        "description": "XF Test."
+      }
+    ]
   }
 ]
