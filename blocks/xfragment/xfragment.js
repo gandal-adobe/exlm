@@ -1,6 +1,6 @@
 // fetch fragment html
 const fetchFragment = async (url) => {
-  const response = await (url.querySelector('a').href);
+  const response = await fetch(url.querySelector('a').href);
   return response.text();
 };
 
