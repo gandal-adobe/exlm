@@ -1,3 +1,5 @@
+import {decorateBlock} from '../../scripts/lib-franklin.js';
+
 // fetch fragment html
 const fetchFragment = async (url) => {
   const response = await fetch(url.querySelector('a').href);
@@ -16,6 +18,7 @@ export default async function decorate(block) {
     const xfragmentDOM = document.createRange().createContextualFragment(teaserFragment);
     //contentDiv.appendChild(xfragmentDOM.querySelector('main').firstElementChild.firstElementChild);
     block.innerHTML = xfragmentDOM.querySelector('main').innerHTML;
+    decorateBlock(block);
   }
 
 }
