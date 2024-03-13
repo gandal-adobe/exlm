@@ -12,7 +12,7 @@ export default async function decorate(block) {
   const teaserFragment = await fetchFragment(xfragmentUrl);
   if (teaserFragment) {
     const xfragmentDOM = document.createRange().createContextualFragment(teaserFragment);
-    block.innerHTML = xfragmentDOM.querySelector('main').firstElementChild.innerHTML;
+    block.innerHTML = xfragmentDOM.querySelector('main').innerHTML;
   }
 
 }
