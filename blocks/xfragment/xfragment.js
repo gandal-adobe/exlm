@@ -11,11 +11,11 @@ export default async function decorate(block) {
   );
   const teaserFragment = await fetchFragment(xfragmentUrl);
   if (teaserFragment) {
-    const contentDiv = document.createElement('div');
-    contentDiv.classList.add('teaser-wrapper');
+    //const contentDiv = document.createElement('div');
+    //contentDiv.classList.add('teaser-wrapper');
     const xfragmentDOM = document.createRange().createContextualFragment(teaserFragment);
     contentDiv.appendChild(xfragmentDOM.querySelector('main').firstElementChild.firstElementChild);
-    block.innerHTML = contentDiv.outerHTML;
+    block.innerHTML = xfragmentDOM.innerHTML;
   }
 
 }
