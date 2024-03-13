@@ -14,7 +14,7 @@ export default async function decorate(block) {
     //const contentDiv = document.createElement('div');
     //contentDiv.classList.add('teaser-wrapper');
     const xfragmentDOM = document.createRange().createContextualFragment(teaserFragment);
-    contentDiv.appendChild(xfragmentDOM.querySelector('main').firstElementChild.firstElementChild);
+    //contentDiv.appendChild(xfragmentDOM.querySelector('main').firstElementChild.firstElementChild);
     block.innerHTML = xfragmentDOM.innerHTML;
   }
 
