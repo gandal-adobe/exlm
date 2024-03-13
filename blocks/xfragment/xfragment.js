@@ -1,5 +1,5 @@
 export async function getFragment(url) {
-  const response = await fetch(url);
+  const response = await fetch(url.querySelector('a').href);
   if (!response.ok) {
     // eslint-disable-next-line no-console
     console.error('error loading fragment details', response);
