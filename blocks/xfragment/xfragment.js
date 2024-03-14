@@ -1,4 +1,6 @@
-import {decorateBlock} from '../../scripts/lib-franklin.js';
+import {decorateBlock, loadBlocks} from '../../scripts/lib-franklin.js';
+import { decorateMain } from '../../scripts/scripts.js';
+import decorateXFragment from '../xfragment/xfragment.js';
 
 // fetch fragment html
 const fetchFragment = async (url) => {
@@ -17,7 +19,7 @@ export default async function decorate(block) {
     //contentDiv.classList.add('teaser-wrapper');
     const xfragmentDOM = document.createRange().createContextualFragment(teaserFragment);
     //contentDiv.appendChild(xfragmentDOM.querySelector('main').firstElementChild.firstElementChild);
-    const xfragmentBlock = decorateBlock(xfragmentDOM.querySelector('main').firstElementChild);
+    const xfragmentBlock = decorateXFragment(xfragmentDOM.querySelector('main').firstElementChild);
     block.innerHTML = xfragmentBlock.outerHTML;
   }
 
