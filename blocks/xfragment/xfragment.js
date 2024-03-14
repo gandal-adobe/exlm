@@ -1,4 +1,4 @@
-import {decorateBlock, loadBlocks} from '../../scripts/lib-franklin.js';
+import {decorateBlock, loadBlock} from '../../scripts/lib-franklin.js';
 import { decorateMain } from '../../scripts/scripts.js';
 import decorateTeaser from '../teaser/teaser.js';
 
@@ -10,6 +10,7 @@ const fetchFragment = async (url) => {
 
 
 export default async function decorate(block) {
+  const fragmentTeaserBlock = block.firstElementChild;
   const [xfragmentUrl] = [...block.children].map(
     (row) => row.firstElementChild,
   );
@@ -18,9 +19,12 @@ export default async function decorate(block) {
     //const contentDiv = document.createElement('div');
     //contentDiv.classList.add('teaser-wrapper');
     const xfragmentDOM = document.createRange().createContextualFragment(teaserFragment);
+    const xfragmentDOMBlock = xfragmentDOM.querySelector('main').firstElementChild.firstElementChild);
+    decorateBlock(xfragmentDOMBlock);
+    loadBlock(xfragmentDOMBlock);
     //contentDiv.appendChild(xfragmentDOM.querySelector('main').firstElementChild.firstElementChild);
-    const xfragmentBlock = decorateTeaser(xfragmentDOM.querySelector('main').firstElementChild);
-    block.innerHTML = xfragmentBlock.outerHTML;
+    const xfragmentTeaserBlock = decorateTeaser(xfragmentDOMBlock);
+    block.innerHTML = xfragmentTeaserBlock.outerHTML;
   }
 
 }
