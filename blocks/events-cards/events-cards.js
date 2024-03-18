@@ -25,7 +25,7 @@ const fetchFragment = async (url) => {
 };
 
 async function renderTeaserFragment(xfragmentUrl, cardBlock) {
-  if (! window.location.pathname.startsWith('/ui')) {
+  if (document.location.href.indexOf('/canvas') < -1) {
     cardBlock.classList.add('hidden');
   }
 
