@@ -478,7 +478,8 @@
                 "template": {
                   "name": "Events Cards",
                   "model": "events-cards",
-                  "headingType": "h2"
+                  "headingType": "h2",
+                  "xfragment":"/content/experience-fragments/exlm-gandal/us/en/site/poc"
                 }
               }
             }

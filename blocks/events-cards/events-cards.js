@@ -18,6 +18,10 @@ function formattedSolutionTags(inputString) {
     .map((part) => part.trim());
 }
 
+function displayTeaserFragment() {
+  alert('xfragment');
+}
+
 /**
  * Decorate function to process and log the mapped data.
  * @param {HTMLElement} block - The block of data to process.
@@ -80,6 +84,7 @@ export default async function decorate(block) {
     .then((data) => {
       // eslint-disable-next-line no-use-before-define
       const filteredLiveEventsData = fetchFilteredCardData(data, solutionsParam);
+
       buildCardsShimmer.remove();
       if (filteredLiveEventsData?.length) {
         for (let i = 0; i < Math.min(noOfResults, filteredLiveEventsData.length); i += 1) {
@@ -91,6 +96,11 @@ export default async function decorate(block) {
         block.appendChild(contentDiv);
         /* Hide Tooltip while scrolling the cards layout */
         hideTooltipOnScroll(contentDiv);
+      }
+
+      if (filteredLiveEventsData.length < 3) {
+        // hide this block and
+        // show teaser fragment instead
       }
     })
     .catch((err) => {
