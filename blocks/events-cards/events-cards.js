@@ -25,7 +25,9 @@ const fetchFragment = async (url) => {
 };
 
 async function renderTeaserFragment(xfragmentUrl, cardBlock) {
-  cardBlock.classList.add('hidden');
+  if (! window.location.pathname.startsWith('/ui')) {
+    cardBlock.classList.add('hidden');
+  }
 
   const teaserFragment = await fetchFragment(xfragmentUrl);
   if (teaserFragment) {
