@@ -16,16 +16,11 @@ export default async function decorate(block) {
   );
   const teaserFragment = await fetchFragment(xfragmentUrl);
   if (teaserFragment) {
-    //const contentDiv = document.createElement('div');
-    //contentDiv.classList.add('teaser-wrapper');
     const xfragmentDOM = document.createRange().createContextualFragment(teaserFragment);
     const xfragmentDOMBlock = xfragmentDOM.querySelector('main').firstElementChild.firstElementChild;
     decorateBlock(xfragmentDOMBlock);
-    loadBlock(xfragmentDOMBlock);
+    await loadBlock(xfragmentDOMBlock);
     // decorateTeaser(xfragmentDOMBlock);
-    // start of css attempt
-    loadCSS(`${window.hlx.codeBasePath}/blocks/teaser/teaser.css`);
-    // end of css attempt
     block.innerHTML = xfragmentDOMBlock.outerHTML;
   }
 
