@@ -1,4 +1,4 @@
-import {decorateBlock, loadBlock} from '../../scripts/lib-franklin.js';
+import {decorateBlock, loadCSS, loadBlock} from '../../scripts/lib-franklin.js';
 import { decorateMain } from '../../scripts/scripts.js';
 import decorateTeaser from '../teaser/teaser.js';
 
@@ -23,6 +23,9 @@ export default async function decorate(block) {
     decorateBlock(xfragmentDOMBlock);
     loadBlock(xfragmentDOMBlock);
     // decorateTeaser(xfragmentDOMBlock);
+    // start of css attempt
+    loadCSS(`${window.hlx.codeBasePath}/blocks/teaser/teaser.css`);
+    // end of css attempt
     block.innerHTML = xfragmentDOMBlock.outerHTML;
   }
 
