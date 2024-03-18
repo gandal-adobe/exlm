@@ -40,7 +40,8 @@ async function renderTeaserFragment(xfragmentUrl, cardBlock) {
     await loadBlock(xfragmentDOMBlock);
 
     // make this a sibling of events-cards
-    console.log(xfragmentDOMBlock);
+    cardBlock.parentElement.append(xfragmentDOMBlock);
+    cardBlock.parentElement.classList.add('teaser-wrapper');
 
     //block.innerHTML = xfragmentDOMBlock.outerHTML;
   }
