@@ -31,9 +31,7 @@ async function renderTeaserFragment(xfragmentUrl, cardBlock) {
     const xfragmentDOM = document.createRange().createContextualFragment(teaserFragment);
     const xfragmentDOMBlock = xfragmentDOM.querySelector('main').firstElementChild.firstElementChild;
     decorateBlock(xfragmentDOMBlock);
-    loadBlock(xfragmentDOMBlock);
-    //contentDiv.appendChild(xfragmentDOM.querySelector('main').firstElementChild.firstElementChild);
-    decorateTeaser(xfragmentDOMBlock);
+    await loadBlock(xfragmentDOMBlock);
 
     // make this a sibling of events-cards
     console.log(xfragmentDOMBlock);
@@ -122,7 +120,7 @@ export default async function decorate(block) {
       if (filteredLiveEventsData.length < 3) {
         // hide this block and
         // show teaser fragment instead
-        renderTeaserFragment(xFragment);
+        renderTeaserFragment(xFragment, block);
       }
     })
     .catch((err) => {
