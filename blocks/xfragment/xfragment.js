@@ -22,7 +22,7 @@ export default async function decorate(block) {
     const xfragmentDOMBlock = xfragmentDOM.querySelector('main').firstElementChild.firstElementChild;
     decorateBlock(xfragmentDOMBlock);
     loadBlock(xfragmentDOMBlock);
-    //decorateTeaser(xfragmentDOMBlock);
+    decorateTeaser(xfragmentDOMBlock);
     block.innerHTML = xfragmentDOMBlock.outerHTML;
   }
 
