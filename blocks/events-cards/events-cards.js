@@ -25,7 +25,8 @@ const fetchFragment = async (url) => {
 };
 
 async function renderTeaserFragment(xfragmentUrl, cardBlock) {
-  if (document.location.href.indexOf('/canvas') < 0) {
+  // if in UE, always show cards block
+  if (! document.querySelector('html').classList.contains('adobe-ue-edit')) {
     cardBlock.classList.add('hidden');
   }
 
