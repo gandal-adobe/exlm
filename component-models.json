@@ -1828,20 +1828,20 @@
         "description": "Sets the text url."
       },
       {
-        "component": "aem-tag",
-        "name": "tags",
-        "label": "Solution(s)",
-        "valueType": "string",
-        "rootPath": "/content/cq:tags/exl/solution",
-        "description": "Optional - all are included if no selection is made."
-      },
-      {
         "component": "aem-experience-fragment",
         "name": "xfragment",
         "label": "experienceFragment",
         "valueType": "string",
         "rootPath": "/content/experience-fragments/exlm-gandal/us/en/site",
         "description": "Teaser XFragment"
+      },
+      {
+        "component": "aem-tag",
+        "name": "tags",
+        "label": "Solution(s)",
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/exl/solution",
+        "description": "Optional - all are included if no selection is made."
       }
     ]
   },

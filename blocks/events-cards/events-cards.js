@@ -18,8 +18,22 @@ function formattedSolutionTags(inputString) {
     .map((part) => part.trim());
 }
 
-function displayTeaserFragment(block) {
-  block.classList.add('hidden');
+async function renderTeaserFragment(xfragmentUrl, cardBlock) {
+  cardBlock.classList.add('hidden');
+
+  const teaserFragment = await fetchFragment(xfragmentUrl);
+  if (teaserFragment) {
+    //const contentDiv = document.createElement('div');
+    //contentDiv.classList.add('teaser-wrapper');
+    console.log(teaserFragment.innerHTML);
+    // const xfragmentDOM = document.createRange().createContextualFragment(teaserFragment);
+    // const xfragmentDOMBlock = xfragmentDOM.querySelector('main').firstElementChild.firstElementChild;
+    // decorateBlock(xfragmentDOMBlock);
+    // loadBlock(xfragmentDOMBlock);
+    // //contentDiv.appendChild(xfragmentDOM.querySelector('main').firstElementChild.firstElementChild);
+    // decorateTeaser(xfragmentDOMBlock);
+    // block.innerHTML = xfragmentDOMBlock.outerHTML;
+  }
 }
 
 /**
@@ -27,8 +41,9 @@ function displayTeaserFragment(block) {
  * @param {HTMLElement} block - The block of data to process.
  */
 export default async function decorate(block) {
+  const xFragmentDefault = '/content/experience-fragments/exlm-gandal/us/en/site/poc';
   // Extracting elements from the block
-  const [headingElement, toolTipElement, linkTextElement, ...configs] = [...block.children].map(
+  const [headingElement, toolTipElement, linkTextElement, xFragment = xFragmentDefault, ...configs] = [...block.children].map(
     (row) => row.firstElementChild,
   );
 
@@ -101,7 +116,7 @@ export default async function decorate(block) {
       if (filteredLiveEventsData.length < 3) {
         // hide this block and
         // show teaser fragment instead
-        displayTeaserFragment(block);
+        renderTeaserFragment(xFragment);
       }
     })
     .catch((err) => {
