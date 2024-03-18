@@ -1,4 +1,4 @@
-import { decorateIcons } from '../../scripts/lib-franklin.js';
+import { buildBlock, decorateIcons } from '../../scripts/lib-franklin.js';
 import BrowseCardsDelegate from '../../scripts/browse-card/browse-cards-delegate.js';
 import { htmlToElement } from '../../scripts/scripts.js';
 import { buildCard } from '../../scripts/browse-card/browse-card.js';
@@ -26,13 +26,19 @@ async function renderTeaserFragment(xfragmentUrl, cardBlock) {
     //const contentDiv = document.createElement('div');
     //contentDiv.classList.add('teaser-wrapper');
     console.log(teaserFragment.innerHTML);
-    // const xfragmentDOM = document.createRange().createContextualFragment(teaserFragment);
-    // const xfragmentDOMBlock = xfragmentDOM.querySelector('main').firstElementChild.firstElementChild;
-    // decorateBlock(xfragmentDOMBlock);
-    // loadBlock(xfragmentDOMBlock);
-    // //contentDiv.appendChild(xfragmentDOM.querySelector('main').firstElementChild.firstElementChild);
-    // decorateTeaser(xfragmentDOMBlock);
-    // block.innerHTML = xfragmentDOMBlock.outerHTML;
+    const xFragment = buildBlock('xfragment', '');
+
+    const xfragmentDOM = document.createRange().createContextualFragment(teaserFragment);
+    const xfragmentDOMBlock = xfragmentDOM.querySelector('main').firstElementChild.firstElementChild;
+    decorateBlock(xfragmentDOMBlock);
+    loadBlock(xfragmentDOMBlock);
+    //contentDiv.appendChild(xfragmentDOM.querySelector('main').firstElementChild.firstElementChild);
+    decorateTeaser(xfragmentDOMBlock);
+
+    // make this a sibling of events-cards
+    console.log(xfragmentDOMBlock);
+
+    //block.innerHTML = xfragmentDOMBlock.outerHTML;
   }
 }
 
