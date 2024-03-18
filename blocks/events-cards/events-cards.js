@@ -18,6 +18,12 @@ function formattedSolutionTags(inputString) {
     .map((part) => part.trim());
 }
 
+// fetch fragment html
+const fetchFragment = async (url) => {
+  const response = await fetch(url);
+  return response.text();
+};
+
 async function renderTeaserFragment(xfragmentUrl, cardBlock) {
   cardBlock.classList.add('hidden');
 
