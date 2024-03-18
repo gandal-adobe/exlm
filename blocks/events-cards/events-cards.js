@@ -101,6 +101,7 @@ export default async function decorate(block) {
       if (filteredLiveEventsData.length < 3) {
         // hide this block and
         // show teaser fragment instead
+        displayTeaserFragment();
       }
     })
     .catch((err) => {
