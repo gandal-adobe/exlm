@@ -18,8 +18,8 @@ function formattedSolutionTags(inputString) {
     .map((part) => part.trim());
 }
 
-function displayTeaserFragment() {
-  alert('xfragment');
+function displayTeaserFragment(block) {
+  block.classList.add('hidden');
 }
 
 /**
@@ -101,7 +101,7 @@ export default async function decorate(block) {
       if (filteredLiveEventsData.length < 3) {
         // hide this block and
         // show teaser fragment instead
-        displayTeaserFragment();
+        displayTeaserFragment(block);
       }
     })
     .catch((err) => {
