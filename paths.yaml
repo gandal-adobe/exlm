@@ -8,6 +8,8 @@ mappings:
   - /content/exlm/global/pt-BR:/pt-br
   - /content/exlm/global/pt-BR/:/pt-br/
   - /content/exlm/metadata:/metadata.json
+  # xfragments
+  - /content/experience-fragments/exlm-gandal/us/en/site:/exlm-gandal/us/en/site
   # spreadsheets
   - /content/exlm/redirects:/redirects.json
   - /content/exlm/languages:/languages.json
