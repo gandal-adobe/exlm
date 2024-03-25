@@ -1,6 +1,6 @@
 mappings:
-  - /content/exlm/global/:/
-  - /content/exlm/global/en:/
+  - /content/exlm-gandal/global/:/
+  - /content/exlm-gandal/global/en:/
   - /content/exlm/global/zh-CN:/zh-hans
   - /content/exlm/global/zh-CN/:/zh-hans/
   - /content/exlm/global/zh-TW:/zh-hant
