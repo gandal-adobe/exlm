@@ -63,4 +63,4 @@ mappings:
   - /content/exlm.resource/zh-TW/query-index.json:/zh-hant/query-index.json
 
 includes:
-  - /content/exlm/
+  - /content/exlm-gandal/
