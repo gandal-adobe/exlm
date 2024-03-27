@@ -1,6 +1,6 @@
 import { buildBlock, decorateBlock, loadBlock, decorateIcons } from '../../scripts/lib-franklin.js';
 import BrowseCardsDelegate from '../../scripts/browse-card/browse-cards-delegate.js';
-import { htmlToElement } from '../../scripts/scripts.js';
+import { htmlToElement, getLanguageCode } from '../../scripts/scripts.js';
 import { buildCard } from '../../scripts/browse-card/browse-card.js';
 import { createTooltip, hideTooltipOnScroll } from '../../scripts/browse-card/browse-card-tooltip.js';
 import BuildPlaceholder from '../../scripts/browse-card/browse-card-placeholder.js';
