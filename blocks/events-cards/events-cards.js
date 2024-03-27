@@ -20,7 +20,9 @@ function formattedSolutionTags(inputString) {
 
 // fetch fragment html
 const fetchFragment = async (url) => {
+  const langCode = await getLanguageCode();
   const response = await fetch(url.querySelector('a').href);
+  console.log(response.status);
   return response.text();
 };
 
