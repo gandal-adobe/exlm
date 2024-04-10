@@ -584,6 +584,10 @@
           {
             "name": "highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Article Full Width",
+            "value": "article-full"
           }
         ]
       },
@@ -598,6 +602,51 @@
   },
   {
     "id": "browse-rail-section",
+    "fields": [
+      {
+        "component": "select",
+        "name": "style",
+        "value": "",
+        "label": "Style",
+        "description": "The section style",
+        "valueType": "string",
+        "hidden": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": "article-head-section",
+    "fields": [
+      {
+        "component": "select",
+        "name": "style",
+        "value": "",
+        "label": "Style",
+        "description": "The section style",
+        "valueType": "string",
+        "hidden": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": "article-content-section",
+    "fields": [
+      {
+        "component": "select",
+        "name": "style",
+        "value": "",
+        "label": "Style",
+        "description": "The section style",
+        "valueType": "string",
+        "hidden": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": "article-full-section",
     "fields": [
       {
         "component": "select",
