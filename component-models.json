@@ -631,21 +631,6 @@
     ]
   },
   {
-    "id": "article-content-section",
-    "fields": [
-      {
-        "component": "select",
-        "name": "style",
-        "value": "",
-        "label": "Style",
-        "description": "The section style",
-        "valueType": "string",
-        "hidden": true,
-        "options": []
-      }
-    ]
-  },
-  {
     "id": "article-full-section",
     "fields": [
       {
@@ -655,8 +640,16 @@
         "label": "Style",
         "description": "The section style",
         "valueType": "string",
-        "hidden": true,
-        "options": []
+        "options": [
+          {
+            "name": "default",
+            "value": "default"
+          },
+          {
+            "name": "highlight",
+            "value": "highlight"
+          }
+        ]
       }
     ]
   },
