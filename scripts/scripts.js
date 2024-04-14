@@ -164,6 +164,11 @@ export function isBrowsePage() {
   return theme.split(',').find((t) => t.toLowerCase().startsWith('browse-'));
 }
 
+export function isArticlePage() {
+  const theme = getMetadata('theme');
+  return theme.split(',').find((t) => t.toLowerCase().startsWith('article'));
+}
+
 /**
  * add a section for the left rail when on a browse page.
  */
@@ -201,6 +206,13 @@ function buildAutoBlocks(main) {
     if (isBrowsePage()) {
       addBrowseBreadCrumb(main);
       addBrowseRail(main);
+    }
+
+    if (isArticlePage()) {
+      const articleTocSection = document.createElement('div');
+      articleTocSection.classList.add('article-toc');
+      articleTocSection.append(buildBlock('article-toc', []));
+      main.append(articleTocSection);
     }
   } catch (error) {
     // eslint-disable-next-line no-console
