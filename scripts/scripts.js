@@ -165,8 +165,9 @@ export function isBrowsePage() {
 }
 
 export function isArticlePage() {
-  const theme = getMetadata('theme');
-  return theme.split(',').find((t) => t.toLowerCase().startsWith('article'));
+  return true;
+  // const theme = getMetadata('theme');
+  // return theme.split(',').find((t) => t.toLowerCase().startsWith('article'));
 }
 
 /**
