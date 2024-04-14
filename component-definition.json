@@ -100,6 +100,59 @@
               }
             }
           }
+        },
+        {
+          "title": "Article Head",
+          "id": "article-head-section",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Article Head",
+                  "model": "article-head-section",
+                  "style": "article-header",
+                  "articlemarquee": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block",
+                    "name": "Article Marquee",
+                    "model": "article-marquee"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Article Content",
+          "id": "article-content-section",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Article Content",
+                  "model": "article-content-section",
+                  "style": "article-content"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Article Full Width Section",
+          "id": "article-full-section",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Article Full Width Section",
+                  "model": "article-full-section",
+                  "style": "article-full"
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -121,7 +174,7 @@
                     "sling:resourceType": "core/franklin/components/block/v1/block/item",
                     "name": "Icon Card",
                     "model": "icon-card",
-                    "cardIcon": "/content/dam/exlm/icons/S_ExperienceManager_24_N.svg",
+                    "cardIcon": "/content/dam/exlm/icons/S_Experience nager_24_N.svg",
                     "cardHeading": "Default Heading",
                     "cardHeadingType": "h3",
                     "cardDescription": "Default description",

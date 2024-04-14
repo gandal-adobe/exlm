@@ -1,7 +1,7 @@
 [
   {
     "id": "main",
-    "components": ["section", "browse-rail-section"]
+    "components": ["section", "browse-rail-section", "article-head-section", "article-full-section"]
   },
   {
     "id": "columns",
@@ -26,7 +26,6 @@
       "teaser",
       "detailed-teaser",
       "marquee",
-      "article-marquee",
       "carousel",
       "sign-up",
       "video-embed",
