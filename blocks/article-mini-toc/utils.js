@@ -1,4 +1,4 @@
-import { isDocPage } from '../../scripts/scripts.js';
+import { isArticlePage } from '../../scripts/scripts.js';
 
 export function setLevels(val = 2) {
   const selectors = [];
@@ -9,7 +9,7 @@ export function setLevels(val = 2) {
   }
 
   for (let i = val; i >= 1; i -= 1) {
-    if (isDocPage('docs-solution-landing') && i + 1 >= 3) {
+    if (isArticlePage() && i + 1 >= 3) {
       // eslint-disable-next-line no-continue
       continue; // Skip levels h3, h4, h5, h6 on docs-solution-landing pages
     }
@@ -21,15 +21,15 @@ export function setLevels(val = 2) {
 
 export function highlight(replace = false) {
   const render = window.requestAnimationFrame;
-  const ctx = document.querySelector('.mini-toc');
-  const levels = document.querySelector('meta[name="mini-toc-levels"]');
+  const ctx = document.querySelector('.article-mini-toc');
+  const levels = 3; // TBD: define this in placeholders??
   const mtocScroll = ctx.querySelectorAll('a').length > 10;
 
   if (ctx !== null) {
     const top = window.scrollY;
     const headers = Array.from(
       document
-        .querySelector('main')
+        .querySelector('main .article-full')
         .querySelectorAll(
           setLevels(levels !== null && parseInt(levels.content, 10) > 0 ? parseInt(levels.content, 10) : undefined),
         ),

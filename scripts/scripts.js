@@ -211,8 +211,8 @@ function buildAutoBlocks(main) {
 
     if (isArticlePage()) {
       const articleTocSection = document.createElement('div');
-      articleTocSection.classList.add('article-toc');
-      articleTocSection.append(buildBlock('article-toc', []));
+      articleTocSection.classList.add('article-mini-toc');
+      articleTocSection.append(buildBlock('article-mini-toc', []));
       main.append(articleTocSection);
     }
   } catch (error) {

@@ -1409,13 +1409,13 @@ body[class^=article] > main .section.article-full {
   /* background: lightseagreen; */
 }
 
-body[class^=article] > main .section.article-toc {
+body[class^=article] > main .section.article-mini-toc {
   grid-column: 2/3;
   /* grid-area:artice-footer; */
   background: lightpink;
 }
 /* by default all sections are assumed to be article content */
-body[class^=article] > main .section:not(.article-full, .article-header, .article-toc) {
+body[class^=article] > main .section:not(.article-full, .article-header, .article-mini-toc) {
   grid-column: 1/2;
  /* grid-area: article-content; */
  /* background: lightblue;*/

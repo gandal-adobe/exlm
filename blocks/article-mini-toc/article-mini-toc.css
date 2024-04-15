@@ -1,4 +1,4 @@
-.article-toc-container {
+.article-mini-toc-container {
   display: block;
   padding-left: 0;
   padding-top: 8px;
@@ -10,24 +10,24 @@
   overflow: visible;
 }
 
-.article-toc {
+.article-mini-toc {
   font-size: var(--spectrum-font-size-50);
   font-weight: var(--spectrum-extra-bold-font-weight);
   padding-left: 0;
   overflow: hidden;
 }
 
-.article-toc .scrollable-div {
+.article-mini-toc .scrollable-div {
   max-height: 50vh;
   overflow: hidden;
 }
 
-.article-toc .scrollable-div:hover {
+.article-mini-toc .scrollable-div:hover {
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.article-toc h2 {
+.article-mini-toc h2 {
   font-size: var(--spectrum-font-size-50);
   font-weight: var(--spectrum-extra-bold-font-weight);
   text-transform: uppercase;
@@ -35,13 +35,13 @@
   line-height: 31px;
 }
 
-.article-toc ul {
+.article-mini-toc ul {
   list-style: none;
   padding-left: 0;
   margin: 12px 8px 0 0;
 }
 
-.article-toc ul li {
+.article-mini-toc ul li {
   display: inline-flex;
   align-items: center;
   justify-content: start;
@@ -55,23 +55,23 @@
   margin: 4px 0;
 }
 
-.article-toc ul li .is-padded-left-big {
+.article-mini-toc ul li .is-padded-left-big {
   padding-left: var(--spectrum-spacing-400) !important;
 }
 
-.article-toc ul li .is-padded-left-big-big {
+.article-mini-toc ul li .is-padded-left-big-big {
   padding-left: var(--spectrum-spacing-500) !important;
 }
 
-.article-toc ul li .is-padded-left-big-big-big {
+.article-mini-toc ul li .is-padded-left-big-big-big {
   padding-left: var(--spectrum-spacing-600) !important;
 }
 
-.article-toc ul li .is-padded-left-big-big-big-big {
+.article-mini-toc ul li .is-padded-left-big-big-big-big {
   padding-left: var(--spectrum-spacing-700) !important;
 }
 
-.article-toc ul li a {
+.article-mini-toc ul li a {
   font-size: var(--spectrum-font-size-100);
   line-height: 21px;
   display: inline-flex;
@@ -84,19 +84,19 @@
   color: var(--non-spectrum-grey-updated, var(--spectrum-alias-text-color-hover));
 }
 
-.article-toc ul li a:hover {
+.article-mini-toc ul li a:hover {
   background-color: var(--spectrum-alias-highlight-hover, var(--spectrum-alias-highlight-hover));
   color: var(--spectrum-sidenav-item-text-color-hover, var(--spectrum-alias-text-color-hover));
 }
 
-.article-toc ul li a.is-active {
+.article-mini-toc ul li a.is-active {
   font-weight: var(--font-weight-600);
   background-color: var(--spectrum-sidenav-item-background-color-hover, var(--spectrum-alias-highlight-hover));
   color: #1e1e1e;
 }
 
 @media (width >= 900px) {
-  .article-toc h2 {
+  .article-mini-toc h2 {
     line-height: 14px;
   }
 }

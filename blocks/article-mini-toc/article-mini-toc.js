@@ -27,8 +27,8 @@ export default async function decorate() {
   }
   const miniTOCHeading = placeholders?.onThisPage;
   const render = window.requestAnimationFrame;
-  const ctx = document.querySelector('.article-toc');
-  const levels = 3;  // document.querySelector('meta[name="mini-toc-levels"]');
+  const ctx = document.querySelector('.article-mini-toc');
+  const levels = 3;  // TBD: define this in placeholders??
 
   if (ctx !== null) {
     const headers = Array.from(
