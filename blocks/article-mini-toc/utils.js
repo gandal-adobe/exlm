@@ -9,9 +9,9 @@ export function setLevels(val = 2) {
   }
 
   for (let i = val; i >= 1; i -= 1) {
-    if (isArticlePage() && i + 1 >= 3) {
+    if (isArticlePage() && i + 1 >= 4) {
       // eslint-disable-next-line no-continue
-      continue; // Skip levels h3, h4, h5, h6 on docs-solution-landing pages
+      continue; // Skip levels  h4, h5, h6 on article pages
     }
     selectors.push(`h${i + 1}:not(#lists-documentation)`);
   }
