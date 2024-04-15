@@ -35,7 +35,7 @@ export default async function decorate() {
       document
         .querySelector('main .article-full')
         .querySelectorAll(
-          setLevels(levels !== null && parseInt(levels.content, 10) > 0 ? parseInt(levels.content, 10) : undefined),
+          setLevels(levels !== null && parseInt(levels, 10) > 0 ? parseInt(levels, 10) : undefined),
         ),
     ).filter(headerExclusions);
 
