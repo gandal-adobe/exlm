@@ -400,6 +400,9 @@ export default class SignupFlowDialog {
         this.handleNavigation(1);
         pushSignupEvent(e.target, 'view');
       });
+
+      // datalayer push for signup modal show event
+      pushSignupEvent(e.target, 'view');      
     }
   }
 
