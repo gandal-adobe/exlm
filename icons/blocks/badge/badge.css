@@ -1,0 +1,10 @@
+/** This is obselete and should be removed when all pages have been seeded and the old badge is no longer used */
+.badge-wrapper.same-p-tag {
+  display: inline-block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.badge-wrapper .same-p-tag {
+  margin-right: 5px;
+}
