@@ -402,7 +402,7 @@ export default class SignupFlowDialog {
       });
 
       // datalayer push for signup modal show event
-      pushSignupEvent(e.target, 'view');      
+      pushSignupEvent(nextBtn, 'view');      
     }
   }
 
