@@ -401,8 +401,8 @@ export default class SignupFlowDialog {
         pushSignupEvent(e.target, 'view');
       });
 
-      // datalayer push for signup modal show event
-      pushSignupEvent(nextBtn, 'view');      
+      // datalayer push for signup modal show event; use nextBtn as target
+      pushSignupEvent(nextBtn, 'view');
     }
   }
 
