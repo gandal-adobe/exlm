@@ -683,7 +683,7 @@ export default async function decorate(block) {
           if (containsAllAdobeProductsTab && defaultOption !== ALL_ADOBE_OPTIONS_KEY) {
             setTimeout(() => {
               fetchDataAndRenderBlock(ALL_ADOBE_OPTIONS_KEY, false); // pre-fetch all my tab cards to avoid duplicates in indvidual tab. Timeout helps with 429 status code of v2 calls.
-            }, 500);
+            }, 5000);
           }
         },
         onSelectCallback: (selectedItem) => {
