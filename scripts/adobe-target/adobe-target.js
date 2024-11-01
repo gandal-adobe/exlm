@@ -80,7 +80,7 @@ class AdobeTargetClient {
       // This timeout is to handle the case if event not at all dispatched
       setTimeout(() => {
         resolve(false);
-      }, 5000);
+      }, 15000);
     });
   }
 
