@@ -43,8 +43,7 @@ class AdobeTargetClient {
         console.log(error);
       }
     }
-    // return false;
-    return true;  // override for now
+    return false;
   }
 
   /**
